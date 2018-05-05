@@ -28,7 +28,7 @@ public class ScheduleTask {
 
 
         LOGGER.info("test webhooks");
-
+        LOGGER.info("test webhooks again");
         //黄卓
         //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985    沃钱包
         //WOWEALTH_JSESSIONID=f24c40b8-582e-4bc7-bf85-7f14f97020f2    沃百富
