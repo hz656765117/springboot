@@ -21,4 +21,24 @@ public class TestController {
     }
 
 
+    @RequestMapping("test1")
+    public String getSomething1(){
+        LOGGER.debug("aaaaaaaaaaadebugdebugdebugtest1111123434");
+        LOGGER.info("aaaaaaaaaaaaaaaaaaainfoinfoinfotest1111123434");
+        LOGGER.error("aaaaaaaaaaaaaaaaerrorerrorerrortest1111123434");
+        LOGGER.warn("aaaaaaaaaaaaaawarnwarnwarntest1warnwarn111123434");
+
+        return "test111";
+    }
+
+    @RequestMapping({"test2"})
+    public String getSomething2() {
+        LOGGER.debug("BBBBBBBBBBBBBBaaaaaaaaaaadebugdebugdebugtest1111123434");
+        LOGGER.info("BBBBBBBBBBBBBBBaaaaaaaaaaaaaaaaaaainfoinfoinfotest1111123434");
+        LOGGER.error("BBBBBBBBBBBaaaaaaaaaaaaaaaaerrorerrorerrortest1111123434");
+        LOGGER.warn("BBBBBBBBBBBBaaaaaaaaaaaaaawarnwarnwarntest1warnwarn111123434");
+        return "test112221";
+    }
+
+
 }

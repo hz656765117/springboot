@@ -29,6 +29,15 @@ public class ScheduleTask {
         res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=4f0489f9-022a-4dff-a570-2c68016ec0b6");
         LOGGER.info("huangzhuo's wbf sign result",res);
 
+        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=3e30e0f1-4d41-436a-a81e-2f2634b352bc");
+        LOGGER.info("huangzhuo's wbf sign result",res);
+
+        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=d8a42bfd-41f7-4576-913e-4212c8ad9eac");
+        LOGGER.info("huangzhuo's wbf sign result",res);
+
+        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=c7491050-fc05-4b7c-9123-644869f8dff3");
+        LOGGER.info("huangzhuo's wbf sign result",res);
+
 
         LOGGER.info("test webhooks");
         LOGGER.info("test webhooks again");
