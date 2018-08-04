@@ -61,4 +61,15 @@ public class TestController {
     }
 
 
+
+    @RequestMapping({"testt"})
+    public String getSomething5() {
+        LOGGER.debug("4444444444444ccccccBBBBBBBBBBBBBBaaaaaaaaaaadebugdebugdebugtest1111123434");
+        LOGGER.info("444444444444cccccccccccBBBBBBBBBBBBBBBaaaaaaaaaaaaaaaaaaainfoinfoinfotest1111123434");
+        LOGGER.error("4444444444444444ccccccccccccBBBBBBBBBBBaaaaaaaaaaaaaaaaerrorerrorerrortest1111123434");
+        LOGGER.warn("444444444444444ccccccccccBBBBBBBBBBBBaaaaaaaaaaaaaawarnwarnwarntest1warnwarn111123434");
+        return "dddddddasssssssssssssssssssssssssssstest112221cccccccccccc";
+    }
+
+
 }
