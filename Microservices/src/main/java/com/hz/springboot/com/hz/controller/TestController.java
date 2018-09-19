@@ -1,11 +1,25 @@
 package com.hz.springboot.com.hz.controller;
 
 import com.hz.springboot.com.hz.base.quartz.ScheduleTask;
+import com.hz.springboot.com.hz.base.utils.HttpUtil;
+import com.hz.springboot.com.hz.base.utils.UrlUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.beans.Encoder;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 @RestController
 public class TestController {
@@ -70,6 +84,66 @@ public class TestController {
         LOGGER.warn("444444444444444ccccccccccBBBBBBBBBBBBaaaaaaaaaaaaaawarnwarnwarntest1warnwarn111123434");
         return "dddddddasssssssssssssssssssssssssssstest112221cccccccccccc";
     }
+
+//    @RequestMapping("/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8")
+//
+//    public String getSomethingSS(HttpServletRequest request, @PathVariable String city) {
+//        LOGGER.info(city);
+//
+//
+//
+//        return "dddddddasssssssssssssssssssssssssssstest112221cccccccccccc";
+//    }
+
+
+
+    @RequestMapping(value = "/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public String updateAllSwitch(HttpServletRequest request, HttpServletResponse response, @PathVariable String city) {
+        LOGGER.info(city);
+        String parm = UrlUtil.getURLEncoderString(city);
+        LOGGER.info(parm);
+        String apiUrl = String.format("http://www.sojson.com/open/api/weather/json.shtml?city=%s",parm);
+        String result = HttpUtil.get(apiUrl,null);
+        LOGGER.info(result);
+        return result;
+    }
+
+
+//
+//
+//    public static void main(String[] args) throws Exception{
+//        String city = UrlUtil.getURLEncoderString("北京");
+//
+//
+//        System.out.println(city);
+//
+//        String apiUrl = String.format("http://www.sojson.com/open/api/weather/json.shtml?city=%s",city);
+//
+////        apiUrl = "http://www.sojson.com/open/api/weather/json.shtml?city=长沙";
+//        System.out.println(apiUrl);
+//        String result = HttpUtil.get(apiUrl,null);
+////        String sCurrentLine = "";
+////        String sTotalString = "";
+////        try {
+////            URL l_url = new URL(apiUrl);
+////            HttpURLConnection l_connection = (HttpURLConnection) l_url.openConnection();
+////            l_connection.connect();
+////            InputStream l_urlStream;
+////            l_urlStream = l_connection.getInputStream();
+////            BufferedReader l_reader = new BufferedReader(new InputStreamReader(
+////                    l_urlStream, "utf-8"));
+////            // sCurrentLine = l_reader.readLine();
+////            while ((sCurrentLine = l_reader.readLine()) != null) {
+////                sTotalString += sCurrentLine + "\r\n";
+////            }
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+//        System.out.println(result);
+//
+//
+//    }
 
 
 }

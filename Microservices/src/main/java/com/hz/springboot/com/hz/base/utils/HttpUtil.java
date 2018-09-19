@@ -309,7 +309,7 @@ public class HttpUtil {
 			InputStream l_urlStream;
 			l_urlStream = l_connection.getInputStream();
 			BufferedReader l_reader = new BufferedReader(new InputStreamReader(
-					l_urlStream, "gbk"));
+					l_urlStream, "utf-8"));
 			// sCurrentLine = l_reader.readLine();
 			while ((sCurrentLine = l_reader.readLine()) != null) {
 				sTotalString += sCurrentLine + "\r\n";
