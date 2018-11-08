@@ -1,4 +1,4 @@
-package com.hz.springboot.com.hz.base.utils;
+package com.hz.springboot.base.utils;
 /**
  * 类说明
  */

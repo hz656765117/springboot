@@ -1,4 +1,4 @@
-package com.hz.springboot.com.hz.controller;
+package com.hz.springboot.business.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

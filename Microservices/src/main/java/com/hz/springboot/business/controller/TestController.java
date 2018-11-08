@@ -1,42 +1,44 @@
-package com.hz.springboot.com.hz.controller;
+package com.hz.springboot.business.controller;
 
-import com.hz.springboot.com.hz.base.quartz.ScheduleTask;
-import com.hz.springboot.com.hz.base.utils.HttpUtil;
-import com.hz.springboot.com.hz.base.utils.UrlUtil;
-import org.apache.commons.lang3.StringUtils;
+import com.hz.springboot.base.utils.HttpUtil;
+import com.hz.springboot.base.utils.UrlUtil;
+import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.beans.Encoder;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 @RestController
 public class TestController {
-    private static final Logger LOGGER =  LoggerFactory.getLogger(TestController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
+
+    private final TestService testService;
+
+
+    @Autowired
+    public TestController(TestService testService) {
+        this.testService = testService;
+    }
+
+
     @RequestMapping("test")
-    public String getSomething(){
+    public String getSomething() {
+        boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
+        LOGGER.info(homepage_popup_true+"");
         LOGGER.debug("debugdebugdebugtest1111123434");
         LOGGER.info("infoinfoinfotest1111123434");
         LOGGER.error("errorerrorerrortest1111123434");
         LOGGER.warn("warnwarnwarntest1warnwarn111123434");
 
-        return "test111";
+        return homepage_popup_true+"sql  query";
     }
 
 
     @RequestMapping("test1")
-    public String getSomething1(){
+    public String getSomething1() {
         LOGGER.debug("aaaaaaaaaaadebugdebugdebugtest1111123434");
         LOGGER.info("aaaaaaaaaaaaaaaaaaainfoinfoinfotest1111123434");
         LOGGER.error("aaaaaaaaaaaaaaaaerrorerrorerrortest1111123434");
@@ -75,7 +77,6 @@ public class TestController {
     }
 
 
-
     @RequestMapping({"testt"})
     public String getSomething5() {
         LOGGER.debug("4444444444444ccccccBBBBBBBBBBBBBBaaaaaaaaaaadebugdebugdebugtest1111123434");
@@ -96,18 +97,30 @@ public class TestController {
 //    }
 
 
-
+    @CrossOrigin
     @RequestMapping(value = "/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public String updateAllSwitch(HttpServletRequest request, HttpServletResponse response, @PathVariable String city) {
         LOGGER.info(city);
         String parm = UrlUtil.getURLEncoderString(city);
         LOGGER.info(parm);
-        String apiUrl = String.format("http://www.sojson.com/open/api/weather/json.shtml?city=%s",parm);
-        String result = HttpUtil.get(apiUrl,null);
+        String apiUrl = String.format("http://www.sojson.com/open/api/weather/json.shtml?city=%s", parm);
+        String result = HttpUtil.get(apiUrl, null);
         LOGGER.info(result);
         return result;
     }
+
+//    @RequestMapping(value = "/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+//    @ResponseBody
+//    public String weather(HttpServletRequest request, HttpServletResponse response, @PathVariable String city) {
+//        LOGGER.info(city);
+//        String parm = UrlUtil.getURLEncoderString(city);
+//        LOGGER.info(parm);
+//        String apiUrl = String.format("http://www.sojson.com/open/api/weather/json.shtml?city=%s",parm);
+//        String result = HttpUtil.get(apiUrl,null);
+//        LOGGER.info(result);
+//        return result;
+//    }
 
 
 //

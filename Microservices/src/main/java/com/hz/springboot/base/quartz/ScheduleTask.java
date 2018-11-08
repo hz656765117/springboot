@@ -1,6 +1,6 @@
-package com.hz.springboot.com.hz.base.quartz;
+package com.hz.springboot.base.quartz;
 
-import com.hz.springboot.com.hz.base.utils.HttpUtil;
+import com.hz.springboot.base.utils.HttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;

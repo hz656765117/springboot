@@ -1,4 +1,4 @@
-package com.hz.springboot.com.hz.base.quartz;
+package com.hz.springboot.base.quartz;
 
 import org.quartz.Trigger;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.hz.springboot.com.hz.base.utils;
+package com.hz.springboot.base.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;

@@ -12,30 +12,35 @@ spring:
 #    proxy-target-class: true
   application:
     name: Microservices
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://47.92.34.59:3306/3d_tmalld_com?characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true
-#    username: 3d_tmalld_com
-#    password: rKAG917rPpn1UK50
-#    initSize: 20
-#    minIdle: 20
-#    maxActive: 100
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot?characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true
+    username: zls
+    password: hz123456
+    initSize: 20
+    minIdle: 20
+    maxActive: 100
+
+
+
+
+
     # 使用druid数据源
- #   type: com.alibaba.druid.pool.DruidDataSource
- #   driver-class-name: com.mysql.jdbc.Driver
- #   filters: stat
- #   maxActive: 20
- #   initialSize: 1
-  #  maxWait: 60000
-  #  minIdle: 1
- #   timeBetweenEvictionRunsMillis: 60000
- #   minEvictableIdleTimeMillis: 300000
- #   validationQuery: select 'x'
- #   testWhileIdle: true
- #   testOnBorrow: false
- #   testOnReturn: false
- #   poolPreparedStatements: true
-  #  maxOpenPreparedStatements: 20
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.jdbc.Driver
+#    filters: stat
+#    maxActive: 20
+#    initialSize: 1
+#    maxWait: 60000
+#    minIdle: 1
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: select 'x'
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    poolPreparedStatements: true
+#    maxOpenPreparedStatements: 20
   
   # buSihhHTqfgjIOUFiHHkZr9L6hDAKk 
   #LTAIIRIeGvIAVpUi
