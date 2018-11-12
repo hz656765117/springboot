@@ -180,14 +180,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>com.hz.springboot.SpringbootApplication</mainClass>
 					<jvmArguments>-Xms256M -Xmx1024M -XX:+UseConcMarkSweepGC</jvmArguments>
 					<executable>true</executable>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 
-
-
+<!--		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>1.5.3.RELEASE</version>
+			<configuration>
+				<mainClass>com.xx.webapps.api.main.WebappsApiBidMain</mainClass>
+			</configuration>
+			<executions>
+				<execution>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>-->
 
 
 

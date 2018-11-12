@@ -55,10 +55,10 @@ public class UrlUtil {
      * @author lifq
      * @date 2015-3-17 下午04:09:16
      */
-    public static void main(String[] args) {
-        String str = "长沙";
-        System.out.println(getURLEncoderString(str));
-        System.out.println(getURLDecoderString(getURLEncoderString(str)));
-    }
+//    public static void main(String[] args) {
+//        String str = "长沙";
+//        System.out.println(getURLEncoderString(str));
+//        System.out.println(getURLDecoderString(getURLEncoderString(str)));
+//    }
 
 }
