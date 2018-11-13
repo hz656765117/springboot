@@ -21,18 +21,18 @@ public class MybatisGeneratorRun {
      * @param args
      * @throws Exception
      */
-    public static void main(String[] args) throws Exception {
-        List<String> warnings = new ArrayList<String>();
-        ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(MybatisGeneratorRun.class.getClassLoader().getResourceAsStream("generatorConfigW.xml"));
-
-        DefaultShellCallback shellCallback = new DefaultShellCallback(true);
-
-        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
-        myBatisGenerator.generate(null);
-        for (String string : warnings) {
-            System.out.println(string);
-        }
-    }
+//    public static void main(String[] args) throws Exception {
+//        List<String> warnings = new ArrayList<String>();
+//        ConfigurationParser cp = new ConfigurationParser(warnings);
+//        Configuration config = cp.parseConfiguration(MybatisGeneratorRun.class.getClassLoader().getResourceAsStream("generatorConfigW.xml"));
+//
+//        DefaultShellCallback shellCallback = new DefaultShellCallback(true);
+//
+//        MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
+//        myBatisGenerator.generate(null);
+//        for (String string : warnings) {
+//            System.out.println(string);
+//        }
+//    }
 
 }
