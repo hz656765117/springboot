@@ -33,7 +33,7 @@ public class TestController {
         LOGGER.error("errorerrorerrortest1111123434");
         LOGGER.warn("warnwarnwarntest1warnwarn111123434");
 
-        return homepage_popup_true+"sql  query";
+        return homepage_popup_true+"sql  query    jenkins 部署";
     }
 
 
