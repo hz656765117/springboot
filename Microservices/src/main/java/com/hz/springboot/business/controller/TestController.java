@@ -6,12 +6,13 @@ import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@RestController
+@Controller
 public class TestController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
@@ -25,6 +26,7 @@ public class TestController {
 
 
     @RequestMapping("test")
+    @ResponseBody
     public String getSomething() {
         boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
         LOGGER.info(homepage_popup_true+"");
@@ -85,6 +87,17 @@ public class TestController {
         LOGGER.warn("444444444444444ccccccccccBBBBBBBBBBBBaaaaaaaaaaaaaawarnwarnwarntest1warnwarn111123434");
         return "dddddddasssssssssssssssssssssssssssstest112221cccccccccccc";
     }
+
+
+
+    @RequestMapping("/login")
+    public String welcome(){
+
+        return "index";
+
+    }
+
+
 
 //    @RequestMapping("/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8")
 //
