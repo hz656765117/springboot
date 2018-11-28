@@ -27,16 +27,6 @@ public class ScheduleTask {
 
         LOGGER.info("test webhooks");
         LOGGER.info("test webhooks again");
-        //»Æ×¿
-        //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985    ÎÖÇ®°ü
-        //WOWEALTH_JSESSIONID=f24c40b8-582e-4bc7-bf85-7f14f97020f2    ÎÖ°Ù¸»
-
-        //³ÂöÎWOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
-
-        //³ÂöÎWOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
-        //WOWEALTH_JSESSIONID=b41e2ab0-b83e-4c7b-9d1f-5fb0b038c862
-        //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985
-        //WOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
 
     }
 
