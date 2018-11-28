@@ -8,46 +8,32 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@Component // Ê≠§Ê≥®Ëß£ÂøÖÂä†
-@EnableScheduling // Ê≠§Ê≥®Ëß£ÂøÖÂä†
+@Component // ¥À◊¢Ω‚±ÿº”
+@EnableScheduling // ¥À◊¢Ω‚±ÿº”
 public class ScheduleTask {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ScheduleTask.class);
     public void sayHello(){
         LOGGER.info("Hello world, i'm the king of the world!!!");
-        String res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985");
-        LOGGER.info(res);
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=f24c40b8-582e-4bc7-bf85-7f14f97020f2");
-        LOGGER.info(res);
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=b41e2ab0-b83e-4c7b-9d1f-5fb0b038c862");
-        LOGGER.info(res);
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9");
-        LOGGER.info(res);
 
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=f6ea0cd8-2c6e-4561-a769-4e9b73de6036");
-        LOGGER.info("huangzhuo's wbf sign result",res);
 
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=4f0489f9-022a-4dff-a570-2c68016ec0b6");
-        LOGGER.info("huangzhuo's wbf sign result",res);
+        String  res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=2cd86251-5dbd-4858-a4b5-0b76aca12743");
+        LOGGER.info("huangzhuo's wbf sign result{}",res);
 
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=3e30e0f1-4d41-436a-a81e-2f2634b352bc");
-        LOGGER.info("huangzhuo's wbf sign result",res);
+        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=ed0b8b61-9d34-46db-8098-2092a32255e5");
+        LOGGER.info("zhiyuan's wbf sign result{}",res);
 
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=d8a42bfd-41f7-4576-913e-4212c8ad9eac");
-        LOGGER.info("huangzhuo's wbf sign result",res);
-
-        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=c7491050-fc05-4b7c-9123-644869f8dff3");
-        LOGGER.info("huangzhuo's wbf sign result",res);
-
+        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=14ccb88b-2799-44e6-b2b0-9c4ea5b87669");
+        LOGGER.info("zhiyuan's wqb sign result{}",res);
 
         LOGGER.info("test webhooks");
         LOGGER.info("test webhooks again");
-        //ÈªÑÂçì
-        //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985    Ê≤ÉÈí±ÂåÖ
-        //WOWEALTH_JSESSIONID=f24c40b8-582e-4bc7-bf85-7f14f97020f2    Ê≤ÉÁôæÂØå
+        //ª∆◊ø
+        //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985    Œ÷«Æ∞¸
+        //WOWEALTH_JSESSIONID=f24c40b8-582e-4bc7-bf85-7f14f97020f2    Œ÷∞Ÿ∏ª
 
-        //ÈôàÈë´WOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
+        //≥¬ˆŒWOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
 
-        //ÈôàÈë´WOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
+        //≥¬ˆŒWOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
         //WOWEALTH_JSESSIONID=b41e2ab0-b83e-4c7b-9d1f-5fb0b038c862
         //WOWEALTH_JSESSIONID=c9981905-01e0-4524-90bf-52195b150985
         //WOWEALTH_JSESSIONID=afad2a4f-1924-414d-b078-eb9aa4cf10c9
@@ -68,8 +54,20 @@ public class ScheduleTask {
 ////        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=f6ea0cd8-2c6e-4561-a769-4e9b73de6036");
 ////        LOGGER.info("huangzhuo's wbf sign result",res);
 //
-//        String res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=4f0489f9-022a-4dff-a570-2c68016ec0b6");
-//        LOGGER.info("huangzhuo's wbf sign result",res);
+//
+//
+//
+//        String  res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=2cd86251-5dbd-4858-a4b5-0b76aca12743");
+//        LOGGER.info("huangzhuo's wbf sign result{}",res);
+//
+//        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=ed0b8b61-9d34-46db-8098-2092a32255e5");
+//        LOGGER.info("zhiyuan's wbf sign result{}",res);
+//
+//        res = HttpUtil.get("https://wobaifu.10010.com/wc/memSign","WOWEALTH_JSESSIONID=14ccb88b-2799-44e6-b2b0-9c4ea5b87669");
+//        LOGGER.info("zhiyuan's wqb sign result{}",res);
+//
+//
+//
 //    }
 
 }
