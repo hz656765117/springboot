@@ -34,6 +34,9 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public MkmRecommendPopupRecordsPo getSomething(String channel) {
+        MkmRecommendPopupRecordsPoExample example = new MkmRecommendPopupRecordsPoExample();
+        example.createCriteria().andChannelLessThanOrEqualTo(channel);
+        example.setOrderByClause("channel desc");
         List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = queryPopupList(channel);
         return mkmRecommendPopupRecordsPos != null && mkmRecommendPopupRecordsPos.size() > 0 ? mkmRecommendPopupRecordsPos.get(0) : new MkmRecommendPopupRecordsPo();
     }
