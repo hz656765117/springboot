@@ -25,7 +25,7 @@ public class TestController {
         this.testService = testService;
     }
 
-
+    @CrossOrigin
     @RequestMapping(value = "/open/api/map/{length}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public MkmRecommendPopupRecordsPo getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String length) {
