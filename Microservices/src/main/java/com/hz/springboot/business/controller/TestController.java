@@ -2,6 +2,7 @@ package com.hz.springboot.business.controller;
 
 import com.hz.springboot.base.utils.HttpUtil;
 import com.hz.springboot.base.utils.UrlUtil;
+import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
 import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,17 +26,17 @@ public class TestController {
     }
 
 
-    @RequestMapping("test")
+    @RequestMapping(value = "/open/api/map/{length", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getSomething() {
+    public String getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String length) {
         boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
+        MkmRecommendPopupRecordsPo something = testService.getSomething(length);
         LOGGER.info(homepage_popup_true+"");
         LOGGER.debug("debugdebugdebugtest1111123434");
         LOGGER.info("infoinfoinfotest1111123434");
         LOGGER.error("errorerrorerrortest1111123434");
         LOGGER.warn("warnwarnwarntest1warnwarn111123434");
-
-        return homepage_popup_true+"sql  query    jenkins 部署";
+        return something.toString();
     }
 
 

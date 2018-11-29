@@ -1,7 +1,6 @@
 package com.hz.springboot.business.service.impl;
 
 
-
 import com.hz.springboot.base.utils.DateUtil;
 import com.hz.springboot.business.mybatis.mapper.MkmRecommendPopupRecordsPoMapper;
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
@@ -33,6 +32,11 @@ public class TestServiceImpl implements TestService {
         return mkmRecommendPopupRecordsPos != null && mkmRecommendPopupRecordsPos.size() > 0 ? true : false;
     }
 
+    @Override
+    public MkmRecommendPopupRecordsPo getSomething(String channel) {
+        List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = queryPopupList(channel);
+        return mkmRecommendPopupRecordsPos != null && mkmRecommendPopupRecordsPos.size() > 0 ? mkmRecommendPopupRecordsPos.get(0) : new MkmRecommendPopupRecordsPo();
+    }
 
     public List<MkmRecommendPopupRecordsPo> queryPopupList(String channel) {
         MkmRecommendPopupRecordsPoExample example = new MkmRecommendPopupRecordsPoExample();

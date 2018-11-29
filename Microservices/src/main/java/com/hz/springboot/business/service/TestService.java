@@ -1,6 +1,8 @@
 package com.hz.springboot.business.service;
 
 
+import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
+
 public interface TestService {
 
 
@@ -12,6 +14,9 @@ public interface TestService {
      */
     boolean checkNeedPopup(String channel);
 
+
+
+    MkmRecommendPopupRecordsPo getSomething(String channel);
 
 
 }
