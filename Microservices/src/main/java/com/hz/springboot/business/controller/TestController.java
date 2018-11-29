@@ -26,9 +26,9 @@ public class TestController {
     }
 
 
-    @RequestMapping(value = "/open/api/map/{length", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/open/api/map/{length}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String length) {
+    public MkmRecommendPopupRecordsPo getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String length) {
         boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
         MkmRecommendPopupRecordsPo something = testService.getSomething(length);
         LOGGER.info(homepage_popup_true+"");
@@ -36,7 +36,8 @@ public class TestController {
         LOGGER.info("infoinfoinfotest1111123434");
         LOGGER.error("errorerrorerrortest1111123434");
         LOGGER.warn("warnwarnwarntest1warnwarn111123434");
-        return something.toString();
+
+        return something;
     }
 
 
