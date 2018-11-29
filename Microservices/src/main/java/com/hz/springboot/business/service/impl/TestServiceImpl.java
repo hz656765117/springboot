@@ -37,7 +37,7 @@ public class TestServiceImpl implements TestService {
         MkmRecommendPopupRecordsPoExample example = new MkmRecommendPopupRecordsPoExample();
         example.createCriteria().andChannelLessThanOrEqualTo(channel);
         example.setOrderByClause("channel desc");
-        List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = queryPopupList(channel);
+        List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = mkmRecommendPopupRecordsPoMapper.selectByExample(example);
         return mkmRecommendPopupRecordsPos != null && mkmRecommendPopupRecordsPos.size() > 0 ? mkmRecommendPopupRecordsPos.get(0) : new MkmRecommendPopupRecordsPo();
     }
 
