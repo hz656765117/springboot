@@ -48,7 +48,7 @@ public class QuartzConfigration {
     public CronTriggerFactoryBean cronJobTrigger(MethodInvokingJobDetailFactoryBean jobDetail) {
         CronTriggerFactoryBean tigger = new CronTriggerFactoryBean();
         tigger.setJobDetail(jobDetail.getObject());
-        tigger.setCronExpression("30 30 8 * * ?");// 初始时的cron表达式
+        tigger.setCronExpression("30 0 0 * * ?");// 初始时的cron表达式
         tigger.setName("srd-chhliu");// trigger的name
         return tigger;
 
