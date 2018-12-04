@@ -3,6 +3,7 @@ package com.hz.springboot.business.controller;
 import com.hz.springboot.base.utils.HttpUtil;
 import com.hz.springboot.base.utils.UrlUtil;
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
+import com.hz.springboot.business.pojo.PointPosition;
 import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +27,11 @@ public class TestController {
     }
 
     @CrossOrigin
-    @RequestMapping(value = "/open/api/map/{length}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/open/api/map/{direction}/{length}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public MkmRecommendPopupRecordsPo getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String length) {
+    public PointPosition getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String direction, @PathVariable String length) {
         boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
-        MkmRecommendPopupRecordsPo something = testService.getSomething(length);
+        PointPosition something = testService.getSomething(direction,length);
         LOGGER.info(homepage_popup_true+"");
         LOGGER.debug("debugdebugdebugtest1111123434");
         LOGGER.info("infoinfoinfotest1111123434");

@@ -3,10 +3,12 @@ package com.hz.springboot.business.service.impl;
 
 import com.hz.springboot.base.utils.DateUtil;
 import com.hz.springboot.business.mybatis.mapper.MkmRecommendPopupRecordsPoMapper;
+import com.hz.springboot.business.mybatis.mapper.PointPositionMapper;
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPoExample;
+import com.hz.springboot.business.pojo.PointPosition;
+import com.hz.springboot.business.pojo.PointPositionExample;
 import com.hz.springboot.business.service.TestService;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class TestServiceImpl implements TestService {
     private MkmRecommendPopupRecordsPoMapper mkmRecommendPopupRecordsPoMapper;
 
 
+    @Autowired
+    private PointPositionMapper pointPositionMapper;
+
     @Override
     public boolean checkNeedPopup(String channel) {
         List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = queryPopupList(channel);
@@ -33,12 +38,31 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public MkmRecommendPopupRecordsPo getSomething(String channel) {
-        MkmRecommendPopupRecordsPoExample example = new MkmRecommendPopupRecordsPoExample();
-        example.createCriteria().andChannelLessThanOrEqualTo(channel);
-        example.setOrderByClause("channel desc");
-        List<MkmRecommendPopupRecordsPo> mkmRecommendPopupRecordsPos = mkmRecommendPopupRecordsPoMapper.selectByExample(example);
-        return mkmRecommendPopupRecordsPos != null && mkmRecommendPopupRecordsPos.size() > 0 ? mkmRecommendPopupRecordsPos.get(0) : new MkmRecommendPopupRecordsPo();
+    public PointPosition getSomething(String direction, String len) {
+        PointPosition pointPosition = getLessThanOrEqualLen(direction, len);
+        PointPosition greaterThanOrEqualLen = getGreaterThanOrEqualLen(direction, len);
+        if (greaterThanOrEqualLen == null) {
+            pointPosition = new PointPosition();
+            pointPosition.setRemark("outRange");
+        }
+
+        return pointPosition;
+    }
+
+    public PointPosition getLessThanOrEqualLen(String direction, String len) {
+        PointPositionExample example = new PointPositionExample();
+        example.createCriteria().andDirectionEqualTo(direction).andLenLessThanOrEqualTo(Integer.valueOf(len));
+        example.setOrderByClause("len desc");
+        List<PointPosition> pointPositions = pointPositionMapper.selectByExample(example);
+        return pointPositions != null && pointPositions.size() > 0 ? pointPositions.get(0) : new PointPosition();
+    }
+
+    public PointPosition getGreaterThanOrEqualLen(String direction, String len) {
+        PointPositionExample example = new PointPositionExample();
+        example.createCriteria().andDirectionEqualTo(direction).andLenGreaterThanOrEqualTo(Integer.valueOf(len));
+        example.setOrderByClause("len asc");
+        List<PointPosition> pointPositions = pointPositionMapper.selectByExample(example);
+        return pointPositions != null && pointPositions.size() > 0 ? pointPositions.get(0) : null;
     }
 
     public List<MkmRecommendPopupRecordsPo> queryPopupList(String channel) {

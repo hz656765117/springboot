@@ -4,7 +4,9 @@ import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface MkmRecommendPopupRecordsPoMapper {
     long countByExample(MkmRecommendPopupRecordsPoExample example);
 

@@ -2,6 +2,7 @@ package com.hz.springboot.business.service;
 
 
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
+import com.hz.springboot.business.pojo.PointPosition;
 
 public interface TestService {
 
@@ -16,7 +17,7 @@ public interface TestService {
 
 
 
-    MkmRecommendPopupRecordsPo getSomething(String channel);
+    PointPosition getSomething(String direction, String len);
 
 
 }
