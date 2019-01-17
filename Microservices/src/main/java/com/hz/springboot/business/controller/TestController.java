@@ -2,8 +2,8 @@ package com.hz.springboot.business.controller;
 
 import com.hz.springboot.base.utils.HttpUtil;
 import com.hz.springboot.base.utils.UrlUtil;
-import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
 import com.hz.springboot.business.pojo.PointPosition;
+import com.hz.springboot.business.pojo.Schedule;
 import com.hz.springboot.business.service.TestService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class TestController {
@@ -47,6 +49,21 @@ public class TestController {
 
         return something;
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/getSchedule/{userId}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public Map<String, Map<String,List<Schedule>>> getSchedule(HttpServletRequest request, HttpServletResponse response, @PathVariable String userId) {
+        LOGGER.info("getSchedule接口请求，请求参数为{}",userId);
+        Map<String, Map<String,List<Schedule>>> something = testService.getSchedule(userId);
+
+        LOGGER.info("方法一的ip{}",getLocalIp(request));
+        LOGGER.info("方法二的ip{}",getIp(request));
+        LOGGER.info("方法三的ip{}",getIp2(request));
+
+        return something;
+    }
+
 
 
     /**

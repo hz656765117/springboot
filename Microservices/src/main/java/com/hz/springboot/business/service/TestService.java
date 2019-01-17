@@ -3,6 +3,10 @@ package com.hz.springboot.business.service;
 
 import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
 import com.hz.springboot.business.pojo.PointPosition;
+import com.hz.springboot.business.pojo.Schedule;
+
+import java.util.List;
+import java.util.Map;
 
 public interface TestService {
 
@@ -19,5 +23,8 @@ public interface TestService {
 
     PointPosition getSomething(String direction, String len);
 
+
+
+    Map<String, Map<String,List<Schedule>>> getSchedule(String userId);
 
 }
