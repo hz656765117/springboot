@@ -5,6 +5,7 @@ import com.hz.springboot.base.utils.DateUtil;
 import com.hz.springboot.business.mybatis.mapper.MkmRecommendPopupRecordsPoMapper;
 import com.hz.springboot.business.mybatis.mapper.PointPositionMapper;
 import com.hz.springboot.business.mybatis.mapper.WechatInfoMapper;
+import com.hz.springboot.business.mybatis.mapper.WechatScheduleMapper;
 import com.hz.springboot.business.pojo.*;
 import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
@@ -30,6 +31,10 @@ public class TestServiceImpl implements TestService {
 
     @Autowired
     private WechatInfoMapper wechatInfoMapper;
+
+    @Autowired
+    private WechatScheduleMapper wechatScheduleMapper;
+
 
 
     @Override
@@ -77,42 +82,21 @@ public class TestServiceImpl implements TestService {
 
 
     @Override
-    public Map<String, Map<String,List<Schedule>>> getSchedule(String userId) {
-        Schedule schedule0 = new Schedule("语文","1","1");
-        Schedule schedule1 = new Schedule("数学","1","2");
-        Schedule schedule2 = new Schedule("英语","1","3");
-        Schedule schedule3 = new Schedule("化学","1","4");
-        Schedule schedule4 = new Schedule("生物","1","5");
+    public Map<String, Map<String,List<WechatSchedule>>> getSchedule(String userId) {
 
-        Schedule schedule10 = new Schedule("数学","2","1");
-        Schedule schedule11 = new Schedule("英语","2","2");
-        Schedule schedule12 = new Schedule("生物","2","3");
-        Schedule schedule13 = new Schedule("化学","2","4");
-        Schedule schedule14 = new Schedule("语文","2","5");
+        WechatScheduleExample example = new WechatScheduleExample();
+        example.createCriteria().andClassidEqualTo("174");
 
-        List<Schedule> list = new ArrayList<>();
-        list.add(schedule0);
-        list.add(schedule1);
-        list.add(schedule2);
-        list.add(schedule3);
-        list.add(schedule4);
-        list.add(schedule10);
-        list.add(schedule11);
-        list.add(schedule12);
-        list.add(schedule13);
-        list.add(schedule14);
-
-        Map<String, Map<String,List<Schedule>>> allMap =new TreeMap<>();
-
-
+        List<WechatSchedule> list = wechatScheduleMapper.selectByExample(example);
+        Map<String, Map<String,List<WechatSchedule>>> allMap =new TreeMap<>();
         for (int i =0 ;i<list.size();i++) {
-            Schedule schedule = list.get(i);
-            String name = schedule.getTimePeriod();
-            String curName = schedule.getTimePeriod() + "_"+ schedule.getDayOfWeek();
+            WechatSchedule schedule = list.get(i);
+            String name = schedule.getTimeperiod();
+            String curName = schedule.getTimeperiod() + "_"+ schedule.getDayofweek();
             if (allMap.get(name)!=null){
-                Map<String,List<Schedule>> curMap = allMap.get(name);
+                Map<String,List<WechatSchedule>> curMap = allMap.get(name);
 
-                List<Schedule> schedules = curMap.get(curName);
+                List<WechatSchedule> schedules = curMap.get(curName);
                 if (schedules== null){
                     schedules = new ArrayList<>();
                 }
@@ -121,9 +105,9 @@ public class TestServiceImpl implements TestService {
 
                 curMap.put(curName,schedules);
             }else{
-                List<Schedule> curList = new ArrayList<>();
+                List<WechatSchedule> curList = new ArrayList<>();
                 curList.add(schedule);
-                Map<String,List<Schedule>> map =new HashMap<>();
+                Map<String,List<WechatSchedule>> map =new HashMap<>();
                 map.put(curName,curList);
                 allMap.put(name,map);
             }

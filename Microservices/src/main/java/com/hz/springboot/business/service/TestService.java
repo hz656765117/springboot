@@ -2,10 +2,7 @@ package com.hz.springboot.business.service;
 
 
 import com.alibaba.druid.wall.WallSQLException;
-import com.hz.springboot.business.pojo.MkmRecommendPopupRecordsPo;
-import com.hz.springboot.business.pojo.PointPosition;
-import com.hz.springboot.business.pojo.Schedule;
-import com.hz.springboot.business.pojo.WechatInfo;
+import com.hz.springboot.business.pojo.*;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +24,7 @@ public interface TestService {
 
 
 
-    Map<String, Map<String,List<Schedule>>> getSchedule(String userId);
+    Map<String, Map<String,List<WechatSchedule>>> getSchedule(String userId);
 
     WechatInfo getWethatInfo(String id);
 
