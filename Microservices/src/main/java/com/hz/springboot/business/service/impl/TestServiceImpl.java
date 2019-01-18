@@ -4,6 +4,7 @@ package com.hz.springboot.business.service.impl;
 import com.hz.springboot.base.utils.DateUtil;
 import com.hz.springboot.business.mybatis.mapper.MkmRecommendPopupRecordsPoMapper;
 import com.hz.springboot.business.mybatis.mapper.PointPositionMapper;
+import com.hz.springboot.business.mybatis.mapper.WechatInfoMapper;
 import com.hz.springboot.business.pojo.*;
 import com.hz.springboot.business.service.TestService;
 import org.slf4j.Logger;
@@ -26,6 +27,10 @@ public class TestServiceImpl implements TestService {
 
     @Autowired
     private PointPositionMapper pointPositionMapper;
+
+    @Autowired
+    private WechatInfoMapper wechatInfoMapper;
+
 
     @Override
     public boolean checkNeedPopup(String channel) {
@@ -125,5 +130,12 @@ public class TestServiceImpl implements TestService {
         }
 
         return allMap;
+    }
+
+
+    @Override
+    public WechatInfo getWethatInfo(String id) {
+        WechatInfo wechatInfo = wechatInfoMapper.selectByPrimaryKey(Integer.valueOf(id));
+        return wechatInfo;
     }
 }
