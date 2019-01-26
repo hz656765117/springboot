@@ -60,7 +60,7 @@ public class TestServiceImpl implements TestService {
     public List<PointPosition> getSomethings(String direction, String len) {
         PointPositionExample example = new PointPositionExample();
         example.createCriteria().andDirectionEqualTo(direction).andLenLessThanOrEqualTo(Integer.valueOf(len));
-        example.setOrderByClause("len desc");
+        example.setOrderByClause("len  asc");
         List<PointPosition> pointPositions = pointPositionMapper.selectByExample(example);
         return  pointPositions;
     }
