@@ -24,6 +24,9 @@ public interface TestService {
 
 
 
+    List<PointPosition> getSomethings(String direction, String len);
+
+
     Map<String, Map<String,List<WechatSchedule>>> getSchedule(String userId);
 
     WechatInfo getWethatInfo(String id);

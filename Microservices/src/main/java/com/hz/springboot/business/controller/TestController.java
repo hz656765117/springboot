@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -36,38 +37,51 @@ public class TestController {
     @ResponseBody
     public PointPosition getSomething(HttpServletRequest request, HttpServletResponse response, @PathVariable String direction, @PathVariable String length) {
         boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
-        PointPosition something = testService.getSomething(direction,length);
-        LOGGER.info(homepage_popup_true+"");
+        PointPosition something = testService.getSomething(direction, length);
+        LOGGER.info(homepage_popup_true + "");
         LOGGER.debug("debugdebugdebugtest1111123434");
         LOGGER.info("infoinfoinfotest1111123434");
         LOGGER.error("errorerrorerrortest1111123434");
         LOGGER.warn("warnwarnwarntest1warnwarn111123434");
 
 
-        LOGGER.info("方法一的ip{}",IpUtil.getLocalIp(request));
-        LOGGER.info("方法二的ip{}",IpUtil.getIp(request));
-        LOGGER.info("方法三的ip{}",IpUtil.getIp2(request));
+        LOGGER.info("方法一的ip{}", IpUtil.getLocalIp(request));
+        LOGGER.info("方法二的ip{}", IpUtil.getIp(request));
+        LOGGER.info("方法三的ip{}", IpUtil.getIp2(request));
 
 
         return something;
     }
+
+
+    @CrossOrigin
+    @RequestMapping(value = "/open/api/maps/{direction}/{length}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public List<PointPosition> getSomethings(HttpServletRequest request, HttpServletResponse response, @PathVariable String direction, @PathVariable String length) {
+        boolean homepage_popup_true = testService.checkNeedPopup("homepage_popup_true");
+        List<PointPosition> somethings = testService.getSomethings(direction, length);
+        String  result = somethings != null ? somethings.size()+"" : "query is null";
+        LOGGER.info("查询结果为{}" + result);
+        LOGGER.info("方法一的ip{}", IpUtil.getLocalIp(request));
+        LOGGER.info("方法二的ip{}", IpUtil.getIp(request));
+        LOGGER.info("方法三的ip{}", IpUtil.getIp2(request));
+        return somethings;
+    }
+
 
     @CrossOrigin
     @RequestMapping(value = "/getSchedule/{userId}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Map<String, Map<String,List<WechatSchedule>>> getSchedule(HttpServletRequest request, HttpServletResponse response, @PathVariable String userId) {
-        LOGGER.info("getSchedule接口请求，请求参数为{}",userId);
-        Map<String, Map<String,List<WechatSchedule>>> something = testService.getSchedule(userId);
+    public Map<String, Map<String, List<WechatSchedule>>> getSchedule(HttpServletRequest request, HttpServletResponse response, @PathVariable String userId) {
+        LOGGER.info("getSchedule接口请求，请求参数为{}", userId);
+        Map<String, Map<String, List<WechatSchedule>>> something = testService.getSchedule(userId);
 
         LOGGER.info("方法一的ip{}", IpUtil.getLocalIp(request));
-        LOGGER.info("方法二的ip{}",IpUtil.getIp(request));
-        LOGGER.info("方法三的ip{}",IpUtil.getIp2(request));
+        LOGGER.info("方法二的ip{}", IpUtil.getIp(request));
+        LOGGER.info("方法三的ip{}", IpUtil.getIp2(request));
 
         return something;
     }
-
-
-
 
 
     @RequestMapping("test1")
@@ -120,14 +134,12 @@ public class TestController {
     }
 
 
-
     @RequestMapping("/login")
-    public String welcome(){
+    public String welcome() {
 
         return "index";
 
     }
-
 
 
 //    @RequestMapping("/open/api/weather/{city}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8")
