@@ -19,6 +19,7 @@ public class SpringbootApplication {
 		//WebService的发布地址
 		String address = "http://39.108.216.43:7088/weather";
 		//发布WebService，WebServiceImpl类是WebServie接口的具体实现类
+		Endpoint.publish(address, new WeatherServiceImpl());
 		LOGGER.info("使用WebServicePublishServlet发布WeatherServiceImpl成功!");
 
 	}

@@ -1,5 +1,8 @@
 package com.hz.springboot.business.webservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.jws.WebService;
 
 /**
@@ -9,11 +12,11 @@ import javax.jws.WebService;
  */
 @WebService(endpointInterface = "com.hz.springboot.business.webservice.IWeatherService")
 public class WeatherServiceImpl implements IWeatherService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WeatherServiceImpl.class);
 
     @Override
     public String query(String str) {
-        System.out.println(str);
-        String result = "hello world";
-        return result;
+        LOGGER.info(str);
+        return str;
     }
 }
